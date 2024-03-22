@@ -10,4 +10,4 @@ mechanisms as the four-bar linkage and cam mechanisms.
 
 The position of the four-bar linkage is determined by the following equations:
 
-$\theta_{3_{1,2}} = 2\arctan(\frac{-B\pm \sqrt{B^2-4AC}}{2A})$
+$$\theta_{3_{1,2}} = 2\arctan(\frac{-B\pm \sqrt{B^2-4AC}}{2A})$$
