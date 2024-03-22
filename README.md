@@ -14,7 +14,8 @@ $$\theta_{3_{1,2}} = 2\arctan\left( \frac{-E\pm \sqrt{E^2-4DF}}{2D}\right)$$
 
 $$\theta_{4_{1,2}} = 2\arctan\left( \frac{-B\pm \sqrt{B^2-4AC}}{2A}\right)$$
 
-where A, B, C, D, E, F are variables that depend on the input link position $(\theta_2)$ and some constants $K_n$:
+where the subindices "1,2" refer to the open ("-") and crossed ("+") mechanism, respectively. A, B, C, D, E, F
+are variables that depend on the input link position $(\theta_2)$ and some constants $K_n$:
 
 | $A = \cos(\theta_2) - K_1 - K_2 \cos(\theta_2) + K_3$  | $K_1 = \frac{d}{a}$                       |
 |:-------------------------------------------------------|:------------------------------------------|
