@@ -9,5 +9,7 @@ mechanisms as the four-bar linkage and cam mechanisms.
 ### Position
 
 The position of the four-bar linkage is determined by the following equations:
-
+$\begin{equation}
+f
+\end{equation}$
 $\theta_2$
