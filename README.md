@@ -16,14 +16,14 @@ $$\theta_{4_{1,2}} = 2\arctan\left( \frac{-B\pm \sqrt{B^2-4AC}}{2A}\right)$$
 
 where A, B, C, D, E, F are variables that depend on the crank position $(\theta_2)$ and some constants $K_n$:
 
-$$A = \cos(\theta_2) - K_1 - K_2 \cos(\theta_2) + K_3$$
+$A = \cos(\theta_2) - K_1 - K_2 \cos(\theta_2) + K_3$
 
-$$B = -2\sin(\theta_2)$$
+$B = -2\sin(\theta_2)$
 
-$$C = - K_1 - (K_2 + 1) \cos(\theta_2) + K_3$$
+$C = - K_1 - (K_2 + 1) \cos(\theta_2) + K_3$
 
-$$D = \cos(\theta_2) - K_1 + K_4 \cos(\theta_2) + K_5$$
+$D = \cos(\theta_2) - K_1 + K_4 \cos(\theta_2) + K_5$
 
-$$E = -2\sin(\theta_2)$$
+$E = -2\sin(\theta_2)$
 
-$$F = - K_1 + (K_4 + 1) \cos(\theta_2) + K_5$$
+$F = - K_1 + (K_4 + 1) \cos(\theta_2) + K_5$
