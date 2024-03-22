@@ -20,8 +20,8 @@ where A, B, C, D, E, F are variables that depend on the input link position $(\t
 |:-------------------------------------------------------|:------------------------------------------|
 | $B = -2\sin(\theta_2)$                                 | $K_2 = \frac{d}{c}$                       |
 | $C = - K_1 - (K_2 + 1) \cos(\theta_2) + K_3$           | $K_3 = \frac{a^2 - b^2 + c^2 + d^2}{2ac}$ |
-| $D = \cos(\theta_2) - K_1 + K_4 \cos(\theta_2) + K_5$  | $K_4 = \frac{d}{b}$                       |                  |
-| $E = -2\sin(\theta_2)$                                 | $K_5 = \frac{c^2 - d^2 + a^2 + b^2}{2ab}$ |                                         |
+| $D = \cos(\theta_2) - K_1 + K_4 \cos(\theta_2) + K_5$  | $K_4 = \frac{d}{b}$                       |
+| $E = -2\sin(\theta_2)$                                 | $K_5 = \frac{c^2 - d^2 + a^2 + b^2}{2ab}$ |
 | $F = - K_1 + (K_4 + 1) \cos(\theta_2) + K_5$           |                                           |
 
 where $a, b, c, d$ are the lengths of the input, coupler, output, and fixed links, respectively.
