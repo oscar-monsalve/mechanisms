@@ -3,7 +3,7 @@ import position as pos
 
 # four-bar linkage data
 theta_2 = 40  # degrees
-a = 60
+a = 40
 b = 120
 c = 80
 d = 100
@@ -27,7 +27,6 @@ def main() -> None:
         print("Crossed configuration:")
         print(f"Theta_3_2 is: {theta_3_2: .2f} °")
         print(f"Theta_4_2 is: {theta_4_2: .2f} °\n")
-        print(f"The transmission angle is: {transmission_angle_crossed: .2f}")
 
     if is_grashof is False:
         print("Therefore, no link can describe a full rotation.")
