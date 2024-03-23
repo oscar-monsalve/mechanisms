@@ -1,16 +1,17 @@
 # import matplotlib.pyplot as plt
 import position as pos
+import grashof as grashof
 
 # four-bar linkage data
-theta_2 = 40  # degrees
-a = 40
-b = 120
-c = 80
-d = 100
+theta_2 = 30  # degrees
+a = 38
+b = 56
+c = 50
+d = 66
 
 
 def main() -> None:
-    is_grashof = pos.is_grashof(a, b, c, d)
+    is_grashof = grashof.is_grashof(a, b, c, d)
 
     if is_grashof is True:
 
@@ -21,12 +22,13 @@ def main() -> None:
 
         print("Open configuration:")
         print(f"Theta_3_1 is: {theta_3_1: .2f} °")
-        print(f"Theta_4_1 is: {theta_4_1: .2f} °\n")
-        print(f"The transmission angle is: {transmission_angle_open: .2f}")
+        print(f"Theta_4_1 is: {theta_4_1: .2f} °")
+        print(f"The transmission angle is: {transmission_angle_open: .2f} °\n")
 
         print("Crossed configuration:")
         print(f"Theta_3_2 is: {theta_3_2: .2f} °")
-        print(f"Theta_4_2 is: {theta_4_2: .2f} °\n")
+        print(f"Theta_4_2 is: {theta_4_2: .2f} °")
+        print(f"The transmission angle is: {transmission_angle_crossed: .2f} °\n")
 
     if is_grashof is False:
         print("Therefore, no link can describe a full rotation.")
