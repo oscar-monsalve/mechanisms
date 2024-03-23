@@ -1,6 +1,10 @@
 import numpy as np
 
 
+def check_grashof(a: float, b: float, c: float, d: float) -> bool:
+    min_len = min(a, b, c, d)
+    max_len = max(a, b, c, d)
+
 def k_constants(a: float, b: float, c: float, d: float) -> float:
     """Returns the K_n constants. Its arguments are the mechanisms' lengths a, b, c, d."""
 
