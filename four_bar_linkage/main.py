@@ -2,6 +2,7 @@
 import position as pos
 import grashof as grashof
 import velocity as vel
+import acceleration as accel
 
 # four-bar linkage data
 a = 40
@@ -10,6 +11,7 @@ c = 80
 d = 100
 theta_2 = 40  # degrees
 omega_2 = 25  # rad/s
+alpha_2 = 5  # rad/s^2
 
 
 def main() -> None:
@@ -26,6 +28,11 @@ def main() -> None:
         omega_3_1, omega_4_1 = vel.angular_velocities(a, b, c, theta_2, theta_3_1, theta_4_1, omega_2)
         omega_3_2, omega_4_2 = vel.angular_velocities(a, b, c, theta_2, theta_3_2, theta_4_2, omega_2)
         v_a, v_b_a, v_b = vel.linear_velocities(a, b, c, omega_2, omega_3_1, omega_4_1)
+
+        # Acceleration
+        alpha_3_1, alpha_4_1 = accel.angular_acceleration(
+            a, b, c, theta_2, theta_3_1, theta_4_1, omega_2, omega_3_1, omega_4_1, alpha_2
+        )
 
         # Position print
         print("---------------------------------------")
@@ -50,9 +57,16 @@ def main() -> None:
         print(f"V_B_A is: {v_b_a: .2f} length/s")
         print(f"V_B is: {v_b: .2f} length/s\n")
 
-        print("Crossed configuration:")
-        print(f"Omega_3_2 is: {omega_3_2: .2f} rad/s")
-        print(f"Omega_3_1 is: {omega_4_2: .2f} rad/s")
+        print("crossed configuration:")
+        print(f"omega_3_2 is: {omega_3_2: .2f} rad/s")
+        print(f"omega_3_1 is: {omega_4_2: .2f} rad/s")
+        print("---------------------------------------\n")
+
+        # Acceleration print
+        print("Acceleration:")
+        print("Open configuration:")
+        print(f"Alpha_3_1 is: {alpha_3_1: .2f} rad/s^2")
+        print(f"Alpha_4_1: {alpha_4_1: .2f} rad/s^2")
         print("---------------------------------------\n")
 
     if is_grashof is False:
