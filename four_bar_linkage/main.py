@@ -4,17 +4,18 @@ import grashof as grashof
 import velocity as vel
 import acceleration as accel
 
-# four-bar linkage data
-a = 40
-b = 120
-c = 80
-d = 100
-theta_2 = 40  # degrees
-omega_2 = 25  # rad/s
-alpha_2 = 5  # rad/s^2
-
 
 def main() -> None:
+
+    # four-bar linkage data
+    a = 40
+    b = 120
+    c = 80
+    d = 100
+    theta_2 = 40  # degrees
+    omega_2 = 25  # rad/s
+    alpha_2 = 5  # rad/s^2
+
     is_grashof = grashof.is_grashof(a, b, c, d)
 
     if is_grashof is True:
