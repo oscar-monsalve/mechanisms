@@ -9,18 +9,25 @@ import acceleration as accel
 def main() -> None:
 
     # four-bar linkage data
-    a = 40
-    b = 120
-    c = 80
-    d = 100
-    input_theta_2 = 40  # Input link position to print specific position results.
+    a: float = 40
+    b: float = 120
+    c: float = 80
+    d: float = 100
     theta_2 = np.linspace(0, 360, 360)  # degrees
-    omega_2 = 25  # rad/s
-    alpha_2 = 5  # rad/s^2
+    omega_2: float = 25  # rad/s
+    alpha_2: float = 5  # rad/s^2
 
     is_grashof = grashof.is_grashof(a, b, c, d)
 
     if is_grashof is True:
+
+        while True:
+            try:
+                input_theta_2 = int(input("Enter the input link position in degrees (only integers): "))
+                break
+            except ValueError:
+                print("Error. Enter a number. Try again...\n")
+
         # Position
         k1, k2, k3, k4, k5 = pos.k_constants(a, b, c, d)
         A, B, C, D, F, E = pos.A_constants(theta_2, k1, k2, k3, k4, k5)
