@@ -37,16 +37,20 @@ def main() -> None:
         # Velocity
         omega_3_1, omega_4_1 = vel.angular_velocities(a, b, c, theta_2, theta_3_1, theta_4_1, omega_2)
         omega_3_2, omega_4_2 = vel.angular_velocities(a, b, c, theta_2, theta_3_2, theta_4_2, omega_2)
-        v_a, v_b_a, v_b = vel.linear_velocities(a, b, c, omega_2, omega_3_1, omega_4_1)
+        v_a, v_b_a_1, v_b_1 = vel.linear_velocities(a, b, c, omega_2, omega_3_1, omega_4_1)
+        v_a, v_b_a_2, v_b_2 = vel.linear_velocities(a, b, c, omega_2, omega_3_2, omega_4_2)
 
         # Acceleration
         alpha_3_1, alpha_4_1 = accel.angular_acceleration(
             a, b, c, theta_2, theta_3_1, theta_4_1, omega_2, omega_3_1, omega_4_1, alpha_2
         )
+        alpha_3_2, alpha_4_2 = accel.angular_acceleration(
+            a, b, c, theta_2, theta_3_2, theta_4_2, omega_2, omega_3_2, omega_4_2, alpha_2
+        )
 
         # Position print
         print("---------------------------------------")
-        print("Position:")
+        print("POSITION:")
         print("Open configuration:")
         print(f"Theta_3_1 is: {theta_3_1[input_theta_2]: .2f} °")
         print(f"Theta_4_1 is: {theta_4_1[input_theta_2]: .2f} °")
@@ -56,36 +60,93 @@ def main() -> None:
         print(f"Theta_3_2 is: {theta_3_2[input_theta_2]: .2f} °")
         print(f"Theta_4_2 is: {theta_4_2[input_theta_2]: .2f} °")
         print(f"The transmission angle is: {transmission_angle_crossed[input_theta_2]: .2f} °")
-        print("---------------------------------------\n")
+        print("---------------------------------------")
 
         # Velocity print
-        print("Velocity:")
+        print("VELOCITY:")
         print("Open configuration:")
         print(f"Omega_3_1 is: {omega_3_1[input_theta_2]: .2f} rad/s")
-        print(f"Omega_3_1: {omega_4_1[input_theta_2]: .2f} rad/s")
+        print(f"Omega_4_1 is: {omega_4_1[input_theta_2]: .2f} rad/s")
         print(f"V_A is: {v_a: .2f} length/s")
-        print(f"V_B_A is: {v_b_a[input_theta_2]: .2f} length/s")
-        print(f"V_B is: {v_b[input_theta_2]: .2f} length/s\n")
+        print(f"V_B_A_1 is: {v_b_a_1[input_theta_2]: .2f} length/s")
+        print(f"V_B_1 is: {v_b_1[input_theta_2]: .2f} length/s\n")
 
         print("crossed configuration:")
         print(f"omega_3_2 is: {omega_3_2[input_theta_2]: .2f} rad/s")
-        print(f"omega_3_1 is: {omega_4_2[input_theta_2]: .2f} rad/s")
-        print("---------------------------------------\n")
+        print(f"omega_4_2 is: {omega_4_2[input_theta_2]: .2f} rad/s")
+        print(f"V_B_A_2 is: {v_b_a_2[input_theta_2]: .2f} length/s")
+        print(f"V_B_2 is: {v_b_2[input_theta_2]: .2f} length/s")
+        print("---------------------------------------")
 
         # Acceleration print
-        print("Acceleration:")
+        print("ACCELERATION:")
         print("Open configuration:")
         print(f"Alpha_3_1 is: {alpha_3_1[input_theta_2]: .2f} rad/s^2")
-        print(f"Alpha_4_1: {alpha_4_1[input_theta_2]: .2f} rad/s^2")
-        print("---------------------------------------\n")
+        print(f"Alpha_4_1 is: {alpha_4_1[input_theta_2]: .2f} rad/s^2\n")
 
+        print("Crossed configuration:")
+        print(f"Alpha_3_2 is: {alpha_3_2[input_theta_2]: .2f} rad/s^2")
+        print(f"Alpha_4_2 is: {alpha_4_2[input_theta_2]: .2f} rad/s^2")
+        print("---------------------------------------")
+
+        # Plots
+
+        # Position
+        # Open configiration
+        plt.figure()
         plt.plot(theta_2, theta_3_1)
         plt.plot(theta_2, theta_4_1)
         plt.plot(theta_2, transmission_angle_open)
-        plt.legend([r"$\theta_3$", r"$\theta_4$", r"$\mu$"])
+        plt.legend([r"$\theta_{3_{1}}$", r"$\theta_{4_{1}}$", r"$\mu$"])
         plt.title("Four-bar linkage position (open configuration)")
         plt.xlabel(r"$\theta_2\; (°)$")
         plt.ylabel("Angular position (°)")
+
+        # Crossed configiration
+        plt.figure()
+        plt.plot(theta_2, theta_3_2)
+        plt.plot(theta_2, theta_4_2)
+        plt.plot(theta_2, transmission_angle_crossed)
+        plt.legend([r"$\theta_{3_{2}}$", r"$\theta_{4_{2}}$", r"$\mu$"])
+        plt.title("Four-bar linkage position (crossed configuration)")
+        plt.xlabel(r"$\theta_2\; (°)$")
+        plt.ylabel("Angular position (°)")
+        plt.show()
+
+        # Velocity
+        # Open configuration
+        plt.figure()
+        plt.plot(theta_2, omega_3_1)
+        plt.plot(theta_2, omega_4_1)
+        plt.legend([r"$\omega_{3_{1}}$", r"$\omega_{4_{1}}$"])
+        plt.title("Four-bar linkage angular velocities (open configuration)")
+        plt.xlabel(r"$\theta_2\; (°)$")
+        plt.ylabel("Angular velocity (rad/s)")
+
+        plt.figure()
+        plt.plot(theta_2, v_b_a_1)
+        plt.plot(theta_2, v_b_1)
+        plt.legend([r"$V_{{B/A}_1}$", r"$V_{B_{1}}$"])
+        plt.title("Four-bar linkage linear velocities (open configuration)")
+        plt.xlabel(r"$\theta_2\; (°)$")
+        plt.ylabel("Linear velocity (Length/s)")
+
+        # Crossed configuration
+        plt.figure()
+        plt.plot(theta_2, omega_3_2)
+        plt.plot(theta_2, omega_4_2)
+        plt.legend([r"$\omega_{3_{2}}$", r"$\omega_{4_{2}}$"])
+        plt.title("Four-bar linkage angular velocities (crossed configuration)")
+        plt.xlabel(r"$\theta_2\; (°)$")
+        plt.ylabel("Angular velocity (rad/s)")
+
+        plt.figure()
+        plt.plot(theta_2, v_b_a_2)
+        plt.plot(theta_2, v_b_2)
+        plt.legend([r"$V_{{B/A}_2}$", r"$V_{B_{2}}$"])
+        plt.title("Four-bar linkage linear velocities (crossed configuration)")
+        plt.xlabel(r"$\theta_2\; (°)$")
+        plt.ylabel("Linear velocity (Length/s)")
         plt.show()
 
     if is_grashof is False:
