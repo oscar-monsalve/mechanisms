@@ -41,12 +41,12 @@ def main() -> None:
         v_a, v_b_a_2, v_b_2 = vel.linear_velocities(a, b, c, omega_2, omega_3_2, omega_4_2)
 
         # Acceleration
-        alpha_3_1, alpha_4_1 = accel.angular_acceleration(
-            a, b, c, theta_2, theta_3_1, theta_4_1, omega_2, omega_3_1, omega_4_1, alpha_2
-        )
-        alpha_3_2, alpha_4_2 = accel.angular_acceleration(
-            a, b, c, theta_2, theta_3_2, theta_4_2, omega_2, omega_3_2, omega_4_2, alpha_2
-        )
+        alpha_3_1, alpha_4_1 = accel.angular_acceleration(a, b, c, theta_2, theta_3_1, theta_4_1, omega_2, omega_3_1, omega_4_1, alpha_2)
+        alpha_3_2, alpha_4_2 = accel.angular_acceleration(a, b, c, theta_2, theta_3_2, theta_4_2, omega_2, omega_3_2, omega_4_2, alpha_2)
+        a_a_1, a_b_1, a_b_a_1 = accel.linear_acceleration(a, b, c, theta_2, theta_3_1, theta_4_1, omega_2, omega_3_1, omega_4_1, alpha_2,
+                                                          alpha_3_1, alpha_4_1)
+        a_a_2, a_b_2, a_b_a_2 = accel.linear_acceleration(a, b, c, theta_2, theta_3_2, theta_4_2, omega_2, omega_3_2, omega_4_2, alpha_2,
+                                                          alpha_3_2, alpha_4_2)
 
         # Position print
         print("---------------------------------------")
@@ -82,11 +82,16 @@ def main() -> None:
         print("ACCELERATION:")
         print("Open configuration:")
         print(f"Alpha_3_1 is: {alpha_3_1[input_theta_2]: .2f} rad/s^2")
-        print(f"Alpha_4_1 is: {alpha_4_1[input_theta_2]: .2f} rad/s^2\n")
+        print(f"Alpha_4_1 is: {alpha_4_1[input_theta_2]: .2f} rad/s^2")
+        print(f"A_A is: {a_a_1[input_theta_2]: .2f} length/s^2")
+        print(f"A_B_A_1 is: {a_b_a_1[input_theta_2]: .2f} length/s^2")
+        print(f"A_B_1 is: {a_b_1[input_theta_2]: .2f} length/s^2\n")
 
         print("Crossed configuration:")
         print(f"Alpha_3_2 is: {alpha_3_2[input_theta_2]: .2f} rad/s^2")
         print(f"Alpha_4_2 is: {alpha_4_2[input_theta_2]: .2f} rad/s^2")
+        print(f"A_B_A_2 is: {a_b_a_2[input_theta_2]: .2f} length/s^2")
+        print(f"A_B_2 is: {a_b_2[input_theta_2]: .2f} length/s^2\n")
         print("---------------------------------------")
 
         # Plots
@@ -147,6 +152,42 @@ def main() -> None:
         plt.title("Four-bar linkage linear velocities (crossed configuration)")
         plt.xlabel(r"$\theta_2\; (°)$")
         plt.ylabel("Linear velocity (Length/s)")
+        plt.show()
+
+        # Acceleration
+        # Open configuration
+        plt.figure()
+        plt.plot(theta_2, alpha_3_1)
+        plt.plot(theta_2, alpha_4_1)
+        plt.legend([r"$\alpha_{3_{1}}$", r"$\alpha_{4_{1}}$"])
+        plt.title("Four-bar linkage angular accelerations (open configuration)")
+        plt.xlabel(r"$\theta_2\; (°)$")
+        plt.ylabel(r"Angular accelerations (rad/$s^2$)")
+
+        plt.figure()
+        plt.plot(theta_2, a_b_a_1)
+        plt.plot(theta_2, a_b_1)
+        plt.legend([r"$A_{{B/A}_1}$", r"$A_{B_{1}}$"])
+        plt.title("Four-bar linkage linear accelerations (open configuration)")
+        plt.xlabel(r"$\theta_2\; (°)$")
+        plt.ylabel(r"Linear accelerations (Length/$s^2$)")
+
+        # Crossed configuration
+        plt.figure()
+        plt.plot(theta_2, alpha_3_2)
+        plt.plot(theta_2, alpha_4_2)
+        plt.legend([r"$\alpha_{3_{2}}$", r"$\alpha_{4_{2}}$"])
+        plt.title("Four-bar linkage angular accelerations (crossed configuration)")
+        plt.xlabel(r"$\theta_2\; (°)$")
+        plt.ylabel(r"Angular accelerations (rad/$s^2$)")
+
+        plt.figure()
+        plt.plot(theta_2, a_b_a_2)
+        plt.plot(theta_2, a_b_2)
+        plt.legend([r"$A_{{B/A}_2}$", r"$A_{B_{2}}$"])
+        plt.title("Four-bar linkage linear accelerations (crossed configuration)")
+        plt.xlabel(r"$\theta_2\; (°)$")
+        plt.ylabel(r"Linear accelerations (Length/$s^2$)")
         plt.show()
 
     if is_grashof is False:

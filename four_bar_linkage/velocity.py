@@ -1,4 +1,5 @@
 import numpy as np
+import theta_deg2rad as deg2rad
 
 
 def angular_velocities(a: float, b: float, c: float, theta_2: float, theta_3: float, theta_4: float, omega_2: float) -> float:
@@ -7,7 +8,7 @@ def angular_velocities(a: float, b: float, c: float, theta_2: float, theta_3: fl
     the angular velocity omega_2.
     """
 
-    theta_2_rad, theta_3_rad, theta_4_rad = np.deg2rad(theta_2), np.deg2rad(theta_3), np.deg2rad(theta_4)
+    theta_2_rad, theta_3_rad, theta_4_rad = deg2rad.conversion(theta_2, theta_3, theta_4)
 
     omega_3 = (a * omega_2 * np.sin(theta_4_rad - theta_2_rad)) / (b * np.sin(theta_3_rad - theta_4_rad))
     omega_4 = (a * omega_2 * np.sin(theta_2_rad - theta_3_rad)) / (c * np.sin(theta_4_rad - theta_3_rad))
