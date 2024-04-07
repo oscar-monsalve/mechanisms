@@ -91,7 +91,7 @@ def main() -> None:
         print(f"Alpha_3_2 is: {alpha_3_2[input_theta_2]: .2f} rad/s^2")
         print(f"Alpha_4_2 is: {alpha_4_2[input_theta_2]: .2f} rad/s^2")
         print(f"A_B_A_2 is: {a_b_a_2[input_theta_2]: .2f} length/s^2")
-        print(f"A_B_2 is: {a_b_2[input_theta_2]: .2f} length/s^2\n")
+        print(f"A_B_2 is: {a_b_2[input_theta_2]: .2f} length/s^2")
         print("---------------------------------------")
 
         # Plots
