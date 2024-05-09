@@ -122,9 +122,14 @@ print("The maximum jerk is: ", format(max_j_2, ".2f"), " mm/s^3")
 
 # ______________________________________________________________________________________________________________________________________
 
-# Import cam images 
+# Import cam images
 
-image_path = "D:/OneDrive - Instituto Tecnológico Metropolitano/ITM/2. Teaching/2. Catedra/1. Mecanismos/Evaluación/6. Diseño_levas (20%)/Soluciones_ejercicios_levas/CAD_levas/Grupo_10.PNG"
+#PC-HOME
+# image_path = "D:/OneDrive - Instituto Tecnológico Metropolitano/ITM/2. Teaching/2. Catedra/1. Mecanismos/Evaluación/6. Diseño_levas (20%)/Soluciones_ejercicios_levas/CAD_levas/Grupo_10.PNG"
+
+#Ubuntu
+image_path = "/home/om/personal/coding/mechanisms/cam_mechanism/CAD_levas/Grupo_10.PNG"
+
 image = mpimg.imread(image_path)
 
 # ________________________________________________________________________

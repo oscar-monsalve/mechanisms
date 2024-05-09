@@ -123,16 +123,19 @@ print("The maximum jerk is: ", format(max_j_2, ".2f"), " mm/s^3")
 
 # ______________________________________________________________________________________________________________________________________
 
-# Import cam images 
+# Import cam images
 
 # HOME
 image_path = "D:/OneDrive - Instituto Tecnológico Metropolitano/ITM/2. Teaching/2. Catedra/1. Mecanismos/Evaluación/6. Diseño_levas (20%)/Soluciones_ejercicios_levas/CAD_levas/Grupo_8.PNG"
 
-# Marinilla
-# image_path = "C:/Users/cadd.ITMROBLEDO/OneDrive - Instituto Tecnológico Metropolitano/ITM/2. Teaching/2. Catedra/1. Mecanismos/Evaluación/6. Diseño_levas (20%)/Soluciones_ejercicios_levas/CAD_levas/Grupo_8.PNG" 
+# Lab
+# image_path = "C:/Users/cadd.ITMROBLEDO/OneDrive - Instituto Tecnológico Metropolitano/ITM/2. Teaching/2. Catedra/1. Mecanismos/Evaluación/6. Diseño_levas (20%)/Soluciones_ejercicios_levas/CAD_levas/Grupo_8.PNG"
 
-# LAPTOP
+# LAPTOP windows
 # image_path = "C:/Users/Oscar Monsalve/OneDrive - INSTITUTO TECNOLOGICO METROPOLITANO - ITM/ITM/2. Teaching/2. Catedra/1. Mecanismos/Evaluación/6. Diseño_levas (20%)/Soluciones_ejercicios_levas/CAD_levas/Grupo_8.PNG"
+
+$# Ubuntu
+image_path = "/home/om/personal/coding/mechanisms/cam_mechanism/CAD_levas/Grupo_8.PNG"
 
 image = mpimg.imread(image_path)
 # ________________________________________________________________________
