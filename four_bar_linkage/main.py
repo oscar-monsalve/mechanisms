@@ -1,5 +1,5 @@
 import numpy as np
-# import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 import position as pos
 import grashof as grashof
 import velocity as vel
@@ -11,11 +11,11 @@ def main() -> None:
     # four-bar linkage data
     a: float = 26
     b: float = 86
-    c: float = 40
+    c: float = 49
     d: float = 98
     theta_2 = np.linspace(0, 360, 360)  # degrees
     omega_2: float = 26  # rad/s
-    alpha_2: float = 13 # rad/s^2
+    alpha_2: float = omega_2 / 2  # rad/s^2
 
     is_grashof = grashof.is_grashof(a, b, c, d)
 
@@ -98,25 +98,27 @@ def main() -> None:
 
         # Position
         # Open configiration
-       # plt.figure()
-       # plt.plot(theta_2, theta_3_1)
-       # plt.plot(theta_2, theta_4_1)
-       # plt.plot(theta_2, transmission_angle_open)
-       # plt.legend([r"$\theta_{3_{1}}$", r"$\theta_{4_{1}}$", r"$\mu$"])
-       # plt.title("Four-bar linkage position (open configuration)")
-       # plt.xlabel(r"$\theta_2\; (°)$")
-       # plt.ylabel("Angular position (°)")
+        plt.figure()
+        plt.plot(theta_2, theta_3_1)
+        plt.plot(theta_2, theta_4_1)
+        plt.plot(theta_2, transmission_angle_open)
+        plt.legend([r"$\theta_{3_{1}}$", r"$\theta_{4_{1}}$", r"$\mu$"])
+        plt.title("Four-bar linkage position (open configuration)")
+        plt.xlabel(r"$\theta_2\; (°)$")
+        plt.ylabel("Angular position (°)")
+        plt.grid()
 
-       # # Crossed configiration
-       # plt.figure()
-       # plt.plot(theta_2, theta_3_2)
-       # plt.plot(theta_2, theta_4_2)
-       # plt.plot(theta_2, transmission_angle_crossed)
-       # plt.legend([r"$\theta_{3_{2}}$", r"$\theta_{4_{2}}$", r"$\mu$"])
-       # plt.title("Four-bar linkage position (crossed configuration)")
-       # plt.xlabel(r"$\theta_2\; (°)$")
-       # plt.ylabel("Angular position (°)")
-       # plt.show()
+        # Crossed configiration
+        plt.figure()
+        plt.plot(theta_2, theta_3_2)
+        plt.plot(theta_2, theta_4_2)
+        plt.plot(theta_2, transmission_angle_crossed)
+        plt.legend([r"$\theta_{3_{2}}$", r"$\theta_{4_{2}}$", r"$\mu$"])
+        plt.title("Four-bar linkage position (crossed configuration)")
+        plt.xlabel(r"$\theta_2\; (°)$")
+        plt.ylabel("Angular position (°)")
+        plt.grid()
+        plt.show()
 
         # Velocity
         # Open configuration
