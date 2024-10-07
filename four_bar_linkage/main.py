@@ -4,6 +4,8 @@ import position as pos
 import grashof as grashof
 import velocity as vel
 import acceleration as accel
+import scienceplots
+plt.style.use(["science", "notebook", "grid"])
 
 
 def main() -> None:
