@@ -11,13 +11,13 @@ plt.style.use(["science", "notebook", "grid"])
 def main() -> None:
 
     # four-bar linkage data
-    a: float = 40
-    b: float = 120
-    c: float = 80
-    d: float = 100
+    a: float = 26
+    b: float = 86
+    c: float = 49
+    d: float = 98
     theta_2 = np.linspace(0, 360, 360)  # degrees
-    omega_2: float = 25  # rad/s
-    alpha_2: float = 5  # rad/s^2
+    omega_2: float = 26  # rad/s
+    alpha_2: float = omega_2 / 2  # rad/s^2
 
     is_grashof = grashof.is_grashof(a, b, c, d)
 
@@ -108,6 +108,7 @@ def main() -> None:
         plt.title("Four-bar linkage position (open configuration)")
         plt.xlabel(r"$\theta_2\; (°)$")
         plt.ylabel("Angular position (°)")
+        plt.grid()
 
         # Crossed configiration
         plt.figure()
@@ -118,79 +119,80 @@ def main() -> None:
         plt.title("Four-bar linkage position (crossed configuration)")
         plt.xlabel(r"$\theta_2\; (°)$")
         plt.ylabel("Angular position (°)")
+        plt.grid()
         plt.show()
 
         # Velocity
         # Open configuration
-        plt.figure()
-        plt.plot(theta_2, omega_3_1)
-        plt.plot(theta_2, omega_4_1)
-        plt.legend([r"$\omega_{3_{1}}$", r"$\omega_{4_{1}}$"])
-        plt.title("Four-bar linkage angular velocities (open configuration)")
-        plt.xlabel(r"$\theta_2\; (°)$")
-        plt.ylabel("Angular velocity (rad/s)")
+       # plt.figure()
+       # plt.plot(theta_2, omega_3_1)
+       # plt.plot(theta_2, omega_4_1)
+       # plt.legend([r"$\omega_{3_{1}}$", r"$\omega_{4_{1}}$"])
+       # plt.title("Four-bar linkage angular velocities (open configuration)")
+       # plt.xlabel(r"$\theta_2\; (°)$")
+       # plt.ylabel("Angular velocity (rad/s)")
 
-        plt.figure()
-        plt.plot(theta_2, v_b_a_1)
-        plt.plot(theta_2, v_b_1)
-        plt.legend([r"$V_{{B/A}_1}$", r"$V_{B_{1}}$"])
-        plt.title("Four-bar linkage linear velocities (open configuration)")
-        plt.xlabel(r"$\theta_2\; (°)$")
-        plt.ylabel("Linear velocity (Length/s)")
+       # plt.figure()
+       # plt.plot(theta_2, v_b_a_1)
+       # plt.plot(theta_2, v_b_1)
+       # plt.legend([r"$V_{{B/A}_1}$", r"$V_{B_{1}}$"])
+       # plt.title("Four-bar linkage linear velocities (open configuration)")
+       # plt.xlabel(r"$\theta_2\; (°)$")
+       # plt.ylabel("Linear velocity (Length/s)")
 
-        # Crossed configuration
-        plt.figure()
-        plt.plot(theta_2, omega_3_2)
-        plt.plot(theta_2, omega_4_2)
-        plt.legend([r"$\omega_{3_{2}}$", r"$\omega_{4_{2}}$"])
-        plt.title("Four-bar linkage angular velocities (crossed configuration)")
-        plt.xlabel(r"$\theta_2\; (°)$")
-        plt.ylabel("Angular velocity (rad/s)")
+       # # Crossed configuration
+       # plt.figure()
+       # plt.plot(theta_2, omega_3_2)
+       # plt.plot(theta_2, omega_4_2)
+       # plt.legend([r"$\omega_{3_{2}}$", r"$\omega_{4_{2}}$"])
+       # plt.title("Four-bar linkage angular velocities (crossed configuration)")
+       # plt.xlabel(r"$\theta_2\; (°)$")
+       # plt.ylabel("Angular velocity (rad/s)")
 
-        plt.figure()
-        plt.plot(theta_2, v_b_a_2)
-        plt.plot(theta_2, v_b_2)
-        plt.legend([r"$V_{{B/A}_2}$", r"$V_{B_{2}}$"])
-        plt.title("Four-bar linkage linear velocities (crossed configuration)")
-        plt.xlabel(r"$\theta_2\; (°)$")
-        plt.ylabel("Linear velocity (Length/s)")
-        plt.show()
+       # plt.figure()
+       # plt.plot(theta_2, v_b_a_2)
+       # plt.plot(theta_2, v_b_2)
+       # plt.legend([r"$V_{{B/A}_2}$", r"$V_{B_{2}}$"])
+       # plt.title("Four-bar linkage linear velocities (crossed configuration)")
+       # plt.xlabel(r"$\theta_2\; (°)$")
+       # plt.ylabel("Linear velocity (Length/s)")
+       # plt.show()
 
         # Acceleration
         # Open configuration
-        plt.figure()
-        plt.plot(theta_2, alpha_3_1)
-        plt.plot(theta_2, alpha_4_1)
-        plt.legend([r"$\alpha_{3_{1}}$", r"$\alpha_{4_{1}}$"])
-        plt.title("Four-bar linkage angular accelerations (open configuration)")
-        plt.xlabel(r"$\theta_2\; (°)$")
-        plt.ylabel(r"Angular accelerations (rad/$s^2$)")
+       # plt.figure()
+       # plt.plot(theta_2, alpha_3_1)
+       # plt.plot(theta_2, alpha_4_1)
+       # plt.legend([r"$\alpha_{3_{1}}$", r"$\alpha_{4_{1}}$"])
+       # plt.title("Four-bar linkage angular accelerations (open configuration)")
+       # plt.xlabel(r"$\theta_2\; (°)$")
+       # plt.ylabel(r"Angular accelerations (rad/$s^2$)")
 
-        plt.figure()
-        plt.plot(theta_2, a_b_a_1)
-        plt.plot(theta_2, a_b_1)
-        plt.legend([r"$A_{{B/A}_1}$", r"$A_{B_{1}}$"])
-        plt.title("Four-bar linkage linear accelerations (open configuration)")
-        plt.xlabel(r"$\theta_2\; (°)$")
-        plt.ylabel(r"Linear accelerations (Length/$s^2$)")
+       # plt.figure()
+       # plt.plot(theta_2, a_b_a_1)
+       # plt.plot(theta_2, a_b_1)
+       # plt.legend([r"$A_{{B/A}_1}$", r"$A_{B_{1}}$"])
+       # plt.title("Four-bar linkage linear accelerations (open configuration)")
+       # plt.xlabel(r"$\theta_2\; (°)$")
+       # plt.ylabel(r"Linear accelerations (Length/$s^2$)")
 
-        # Crossed configuration
-        plt.figure()
-        plt.plot(theta_2, alpha_3_2)
-        plt.plot(theta_2, alpha_4_2)
-        plt.legend([r"$\alpha_{3_{2}}$", r"$\alpha_{4_{2}}$"])
-        plt.title("Four-bar linkage angular accelerations (crossed configuration)")
-        plt.xlabel(r"$\theta_2\; (°)$")
-        plt.ylabel(r"Angular accelerations (rad/$s^2$)")
+       # # Crossed configuration
+       # plt.figure()
+       # plt.plot(theta_2, alpha_3_2)
+       # plt.plot(theta_2, alpha_4_2)
+       # plt.legend([r"$\alpha_{3_{2}}$", r"$\alpha_{4_{2}}$"])
+       # plt.title("Four-bar linkage angular accelerations (crossed configuration)")
+       # plt.xlabel(r"$\theta_2\; (°)$")
+       # plt.ylabel(r"Angular accelerations (rad/$s^2$)")
 
-        plt.figure()
-        plt.plot(theta_2, a_b_a_2)
-        plt.plot(theta_2, a_b_2)
-        plt.legend([r"$A_{{B/A}_2}$", r"$A_{B_{2}}$"])
-        plt.title("Four-bar linkage linear accelerations (crossed configuration)")
-        plt.xlabel(r"$\theta_2\; (°)$")
-        plt.ylabel(r"Linear accelerations (Length/$s^2$)")
-        plt.show()
+       # plt.figure()
+       # plt.plot(theta_2, a_b_a_2)
+       # plt.plot(theta_2, a_b_2)
+       # plt.legend([r"$A_{{B/A}_2}$", r"$A_{B_{2}}$"])
+       # plt.title("Four-bar linkage linear accelerations (crossed configuration)")
+       # plt.xlabel(r"$\theta_2\; (°)$")
+       # plt.ylabel(r"Linear accelerations (Length/$s^2$)")
+       # plt.show()
 
     if is_grashof is False:
         print("Therefore, no link can describe a full rotation.")
