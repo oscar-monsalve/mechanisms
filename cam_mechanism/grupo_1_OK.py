@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 
 # Definition of beta, theta and omega
-beta_1 = 45 # Change for every exercise
+beta_1 = 45  # Change for every exercise
 beta_2 = beta_1 * 2
 beta_3 = beta_1 * 3
 beta_4 = 361 - beta_3
@@ -20,7 +20,7 @@ theta_4_fall = np.arange(0, beta_4, 1)
 omega = 2*np.pi
 
 # Maximum height of the follower
-h = 25 # milimeters
+h = 25  # milimeters
 
 # Polinomial 3-4-5
 # Define the polinomial coefficients for the polinomial 3-4-5 as "c"
@@ -33,11 +33,11 @@ d_low_11 = [0] * (beta_1+1)
 d_low_12 = [0] * (beta_4)
 s_rise_1 = c3*(theta_1/beta_1)**3 + c4*(theta_1/beta_1)**4 + c5*(theta_1/beta_1)**5
 s_fall_1 = h - s_rise_1
-d_high_1 = [h] * (beta_1+1) #  CHANGED THE ARGUMENT FOR [h] * [beta_1+1]
+d_high_1 = [h] * (beta_1+1)  # CHANGED THE ARGUMENT FOR [h] * [beta_1+1]
 
 # Follower velocity
 
-v_rise_1 = omega * 1/np.radians(beta_1) * (3*c3*(theta_1/beta_1)**2 +4*c4*(theta_1/beta_1)**3 +5*c5*(theta_1/beta_1)**4 )
+v_rise_1 = omega * 1/np.radians(beta_1) * (3*c3*(theta_1/beta_1)**2 +4*c4*(theta_1/beta_1)**3 + 5*c5*(theta_1/beta_1)**4)
 v_fall_1 = -v_rise_1
 
 # Follower acceleration
@@ -126,7 +126,7 @@ print("The maximum jerk is: ", format(max_j_2, ".2f"), " mm/s^3")
 # Import cam images
 
 # PC-Home
-image_path = "D:/OneDrive - Instituto Tecnológico Metropolitano/ITM/2. Teaching/2. Catedra/1. Mecanismos/Evaluación/6. Diseño_levas (20%)/Soluciones_ejercicios_levas/CAD_levas/Grupo_1.PNG"
+image_path = "D:/OneDrive - Instituto Tecnológico Metropolitano/coding/mechanisms/cam_mechanism/CAD_levas/Grupo_1.PNG"
 
 # LAB
 # image_path = "C:/Users/cadd.ITMROBLEDO/OneDrive - Instituto Tecnológico Metropolitano/ITM/2. Teaching/2. Catedra/1. Mecanismos/Evaluación/6. Diseño_levas (20%)/Soluciones_ejercicios_levas/CAD_levas/Grupo_1.PNG"
@@ -134,8 +134,8 @@ image_path = "D:/OneDrive - Instituto Tecnológico Metropolitano/ITM/2. Teaching
 # LAPTOP-windows
 # image_path = "C:/Users/Oscar Monsalve/OneDrive - INSTITUTO TECNOLOGICO METROPOLITANO - ITM/ITM/2. Teaching/2. Catedra/1. Mecanismos/Evaluación/6. Diseño_levas (20%)/Soluciones_ejercicios_levas/CAD_levas/Grupo_1.PNG"
 
-#Ubuntu
-image_path = "/home/om/personal/coding/mechanisms/cam_mechanism/CAD_levas/Grupo_1.PNG"
+# Ubuntu
+# image_path = "/home/om/personal/coding/mechanisms/cam_mechanism/CAD_levas/Grupo_2.PNG"
 
 image = mpimg.imread(image_path)
 
@@ -144,7 +144,7 @@ image = mpimg.imread(image_path)
 
 # Plots for the polinomial 3-4-5
 
-fig, p1 = plt.subplots(4, 1, sharex= True)
+fig, p1 = plt.subplots(4, 1, sharex=True)
 
 p1[0].plot(
     theta_1, s_rise_1,
@@ -180,13 +180,13 @@ p1[3].plot(
 
 # x-axis parameters
 plt.xlabel(r"$\theta$ (°)")
-plt.xlim([0,360])
+plt.xlim([0, 360])
 plt.xticks([0, beta_1, beta_2, beta_3, 360])
 
 
 # Plots for the polinomial 4-5-6-7
 
-fig, p2 = plt.subplots(4, 1, sharex= True)
+fig, p2 = plt.subplots(4, 1, sharex=True)
 
 p2[0].plot(
     theta_1, s_rise_2,
